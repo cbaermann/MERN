@@ -4,6 +4,7 @@ import './App.css';
 import PersonCard from './components/PersonCard';
 import UserForm from './components/UserForm';
 import Results from './components/Results';
+import MovieForm from './components/MovieForm';
 function App() {
   const [ state, setState] = useState({
     firstName: "",
@@ -17,6 +18,7 @@ function App() {
     <div className="App">
       <UserForm inputs={state} setInputs={setState}/>
       <Results data={state} />
+      {/* <MovieForm/> */}
     </div>
   );
 }
