@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 import PersonCard from './components/PersonCard';
+import UserForm from './components/UserForm';
+import Results from './components/Results';
 function App() {
+  const [ state, setState] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
+  });
+
   return (
     <div className="App">
-      <PersonCard firstName="Jane" lastName="Doe" age={45} hairColor="Black"/>
-      <PersonCard firstName="John" lastName="Smith" age={88} hairColor="Brown"/>
-      <PersonCard firstName="Millard" lastName="Fillmore" age={50} hairColor="Brown"/>
-      <PersonCard firstName="Maria" lastName="Smith" age={62} hairColor="Brown"/>
+      <UserForm inputs={state} setInputs={setState}/>
+      <Results data={state} />
     </div>
   );
 }
