@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link, navigate } from '@reach/router';
 
-const NumberDisplay = () => {
+const NumberDisplay = (props) => {
 
 
     return(
         <div>
-            <h3>The number is: </h3>
+            <h3>The number is:  {Number(props.num)} </h3>
 
         </div>
     )
