@@ -5,7 +5,7 @@ const StarWars = (props) =>{
 
     useEffect( () => {
         console.log("Hello")
-        fetch('https://swapi.co/api/people/')
+        fetch('https://pokeapi.co/api/v2/pokemon/')
             .then(response => {
                 return response.json();
             })
