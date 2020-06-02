@@ -23,7 +23,6 @@ export default () => {
             <PersonForm/>
             <hr/>
             {loaded && <PersonList people={people} removeFromDom={removeFromDom}/>}
-            {/* <PersonList people={people}/> */}
         </>
 )
 

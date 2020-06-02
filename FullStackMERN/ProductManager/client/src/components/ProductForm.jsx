@@ -19,21 +19,26 @@ export default props => {
     }
 
     return(
-        <form onSubmit={onSubmitHandler}>
-            <p>
-                <label>Title</label>
-                <input type="text" onChange={e=>setTitle(e.target.value)}/>
-            </p>
-            <p>
-                <label>Price</label>
-                <input type="text" onChange={e=>setPrice(e.target.value)}/>
-            </p>
-            <p>
-                <label>Description</label>
-                <input type="text" onChange={e=>setDescription(e.target.value)}/>
-            </p>
-            <input type="submit"/>
-        </form>
+        <div>
+            <h1>Enter your product</h1>
+            <form onSubmit={onSubmitHandler}>
+                <p>
+                    <label>Title</label>
+                    <input type="text" onChange={e=>setTitle(e.target.value)}/>
+                </p>
+                <p>
+                    <label>Price</label>
+                    <input type="text" onChange={e=>setPrice(e.target.value)}/>
+                </p>
+                <p>
+                    <label>Description</label>
+                    <input type="text" onChange={e=>setDescription(e.target.value)}/>
+                </p>
+                <input type="submit"/>
+            </form>
+            
+        </div>
+        
     )
 
 }
