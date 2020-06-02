@@ -10,7 +10,7 @@ export default props => {
 
     return(
         <div>
-            <p>Title: {product.title}</p>
+            <h3>{product.title}</h3>
             <p>Price: {product.price}</p>
             <p>Description: {product.description}</p>
         </div>

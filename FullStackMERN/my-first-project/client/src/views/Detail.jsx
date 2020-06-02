@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import {Link, navigate} from '@reach/router'
 import axios from 'axios';
 
 export default props => {
@@ -12,6 +13,9 @@ export default props => {
         <div>
             <p>First Name: {person.firstName}</p>
             <p>Last Name: {person.lastName}</p>
+            <Link to={"/" + person._id + "/edit"}>
+                Edit
+            </Link>
         </div>
     )
 }

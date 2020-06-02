@@ -4,13 +4,15 @@ import './App.css';
 
 import Main from './views/Main';
 import Detail from './views/Detail';
+import Update from './views/Update';
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Main path="/"/>
+        <Main path="/people"/>
         <Detail path="people/:id"/>
+        <Update path="people/:id/edit"/>
       </Router>
     </div>
   );
