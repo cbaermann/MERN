@@ -35,7 +35,7 @@ module.exports.updatePerson = (request, response) => {
 }
 
 module.exports.deletePerson = (request, response) => {
-    Person.deleteOne({_id: request.params.id})
+    Person.deleteOne({ _id: request.params.id })
         .then(deleteConfirmation => response.json(deleteConfirmation))
         .catch(err => response.json(err))
 }

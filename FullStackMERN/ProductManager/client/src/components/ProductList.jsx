@@ -1,42 +1,35 @@
-// import React from 'react';
-
-// export default props => {
-//     return(
-//         <div>
-//             <h2>List of avalible products</h2>
-//             {props.product.map((product, index)=>{
-//                 // return <p key={index}>{product.title}</p>
-//                 return <p><a key={index} href={'/product/' + product._id}>{product.title}</a></p>
-//             })}
-//         </div>
-//     )
-// }
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link }  from '@reach/router';
+import DeleteButton from './DeleteButton';
 
 export default props => {
-    const { removeFromDom } = props;
-    const deleteProduct = (productId) => {
-        axios.delete('http://localhost:8000/api/product/' + productId)
-            .then(res => {
-                removeFromDom(productId)
-            })
+    const [product, setProduct] = useState([])
+    
+    useEffect( () => {
+        axios.get('http://localhost:8000/api/product/')
+            .then(res => setProduct(res.data));
+    }, [])
+    const removeFromDom = productId => {
+        setProduct(product.filter(product => product._id != productId))
     }
 
-    return (
+    return(
         <div>
-            {props.product.map((product, idx) => {
-                return <p key={idx}>
-                    <Link to={"/" + product._id}>
-                        {product.title}
-                    </Link>
-                    |
-                    <button onClick={(e)=>{deleteProduct(product._id)}}>
-                        Delete
-                    </button>
-                </p>
+            {product.map((product, idx) => {
+                return(
+                    <p key={idx}>
+                        <Link to={"/product/" + product._id}>
+                            {product.title}
+                        </Link>
+                        |
+                        <Link to={"/product/" + product._id + "/edit"}>
+                            <button>Edit</button>
+                        </Link>
+                        |
+                        <DeleteButton productId={product._id} successCallback={()=>removeFromDom(product._id)} />
+                    </p>
+                )
             })}
         </div>
     )
