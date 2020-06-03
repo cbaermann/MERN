@@ -12,7 +12,7 @@ function App() {
       <Router>
         <Main path="/author" />
         <New path ="/new" />
-        <Update path="/:id/edit" />
+        <Update path="author/:id/edit" />
       </Router>
     </div>
   );

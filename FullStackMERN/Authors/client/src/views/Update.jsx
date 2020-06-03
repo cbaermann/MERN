@@ -21,7 +21,7 @@ export default props => {
     const updateAuthor = author => {
         axios.put('http://localhost:8000/api/author/' + id, author)
             // .then(res => console.log(res))
-            .then(navigate("/"));
+            .then(navigate("/author/"));
     }
     return(
         <div>
@@ -33,7 +33,7 @@ export default props => {
                         initialFirstName={author.firstName}
                         initialLastName={author.lastName}
                     />
-                    <DeleteButton authorId={author._id} successCallback={()=> navigate("/")} />
+                    <DeleteButton authorId={author._id} successCallback={()=> navigate("/author/")} />
                 </>
             )}
         </div>
